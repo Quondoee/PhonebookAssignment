@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Phonebook {
 
-    private Map<String, List<String>> phonebook;
+    private static Map<String, List<String>> phonebook;
 
 
     public Phonebook() {
@@ -15,7 +15,7 @@ public class Phonebook {
     }
 
     // Add a phone number for a name
-    public void add(String name, String phoneNumber) {
+    public static void add(String name, String phoneNumber) {
         if (!phonebook.containsKey(name)) {
             phonebook.put(name, new ArrayList<>());
         }
@@ -24,7 +24,7 @@ public class Phonebook {
     }
 
 
-    public void addAll(String name, String... phoneNumbers) {
+    public static void addAll(String name, String... phoneNumbers) {
         for (String number : phoneNumbers) {
             add(name, number);
         }
@@ -41,7 +41,7 @@ public class Phonebook {
     }
 
 
-    public List<String> lookup(String name) {
+    public static List<String> lookup(String name) {
 
         return phonebook.getOrDefault(name, new ArrayList<>());
     }
